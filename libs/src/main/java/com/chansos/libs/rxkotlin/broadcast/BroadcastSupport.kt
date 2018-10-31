@@ -5,12 +5,11 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.support.v4.content.LocalBroadcastManager
 import com.chansos.libs.rxkotlin.AppManager
-import com.chansos.libs.rxkotlin.ui.UIHelper
 
 @Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 class BroadcastSupport {
   internal val receiverManager: LocalBroadcastManager by lazy {
-    LocalBroadcastManager.getInstance(UIHelper.getContext())
+    LocalBroadcastManager.getInstance(AppManager.getContext())
   }
 
   fun register(receiver: BroadcastReceiver, vararg actions: String): Boolean {

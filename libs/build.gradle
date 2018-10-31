@@ -61,7 +61,7 @@ publish { // 新增
     userOrg = 'changedenczd' // 注册bintray时的username
     groupId = 'com.chansos.libs' // 项目包名
     artifactId = 'rxkotlin' // 项目名
-    publishVersion = '0.0.4' // 发布版本号
+    publishVersion = '0.0.6' // 发布版本号
     desc = 'Integrated RxJava, RxAndroid, Kotlin, Some Application manager utils.' // 项目描述
     website = 'https://github.com/ChangedenCZD/RxKotlinLibs' // 项目站点
 }

@@ -30,7 +30,7 @@ class UISupport : OnHandlerMessage {
     }
 
     private val toast: Toast by lazy {
-        Toast.makeText(UIHelper.getContext(), "", Toast.LENGTH_SHORT)
+        Toast.makeText(AppManager.getContext(), "", Toast.LENGTH_SHORT)
     }
     private val loadingDialogMapper: ConcurrentHashMap<Int, DialogConfig> by lazy {
         ConcurrentHashMap<Int, DialogConfig>()
@@ -94,7 +94,7 @@ class UISupport : OnHandlerMessage {
 
     fun quickTo(c: Class<*>, f: Fragment) = f.startActivity(normalIntent(c))
 
-    fun normalIntent(c: Class<*>): Intent = Intent().setClass(UIHelper.getContext(), c)
+    fun normalIntent(c: Class<*>): Intent = Intent().setClass(AppManager.getContext(), c)
 
     fun quickToForResult(c: Class<*>, requestCode: Int, a: Activity = AppManager.last()) = a.startActivityForResult(normalIntent(c), requestCode)
 

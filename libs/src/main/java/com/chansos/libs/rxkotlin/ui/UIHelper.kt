@@ -26,13 +26,6 @@ open class UIHelper {
         }
 
         /**
-         * 获取应用根Context实例
-         *
-         * @return 应用根Context实例
-         * */
-        internal fun getContext() = AppManager.getContext()
-
-        /**
          * 显示Toast
          *
          * @param message 要显示的内容
