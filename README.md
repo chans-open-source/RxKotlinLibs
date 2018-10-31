@@ -15,19 +15,19 @@ dependencies {
 ```
 
 ### Application manager utils
-[AppManager](#appmanager)&nbsp;&nbsp;&nbsp;&nbsp;
-[BaseActivity](#baseactivity)&nbsp;&nbsp;&nbsp;&nbsp;
-[BaseFragment](#basefragment)&nbsp;&nbsp;&nbsp;&nbsp;
-[BaseViewPagerFragment](#baseviewpagerfragment)&nbsp;&nbsp;&nbsp;&nbsp;
-[BaseRecyclerViewAdapter](#baserecyclerviewadapter)&nbsp;&nbsp;&nbsp;&nbsp;
-[MVP Struct](#mvp-struct)&nbsp;&nbsp;&nbsp;&nbsp;
-[Http Request](#http-request)&nbsp;&nbsp;&nbsp;&nbsp;
-[BroadcastHelper](#broadcasthelper)&nbsp;&nbsp;&nbsp;&nbsp;
-[HandlerHelper](#handlerhelper)&nbsp;&nbsp;&nbsp;&nbsp;
-[PermissionHelper](#permissionhelper)&nbsp;&nbsp;&nbsp;&nbsp;
-[SharedPreferencesHelper](#sharedpreferenceshelper)&nbsp;&nbsp;&nbsp;&nbsp;
-[UIHelper](#uihelper)&nbsp;&nbsp;&nbsp;&nbsp;
-[ImageLoader](#imageloader)&nbsp;&nbsp;&nbsp;&nbsp;
+[AppManager](#appmanager)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[BaseActivity](#baseactivity)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[BaseFragment](#basefragment)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[BaseViewPagerFragment](#baseviewpagerfragment)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[BaseRecyclerViewAdapter](#baserecyclerviewadapter)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[MVP-Struct](#mvp-struct)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[Http-Request](#http-request)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[BroadcastHelper](#broadcasthelper)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[HandlerHelper](#handlerhelper)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[PermissionHelper](#permissionhelper)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[SharedPreferencesHelper](#sharedpreferenceshelper)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[UIHelper](#uihelper)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[ImageLoader](#imageloader)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
 ### AppManager    \[[To Top](#application-manager-utils)\]
@@ -66,7 +66,7 @@ class FirstActivity : BaseActivity() {}
 class FirstFragment : BaseFragment() {}
 ```
 
-### BaseViewPagerFragment
+### BaseViewPagerFragment    \[[To Top](#application-manager-utils)\]
 ```
 @LayoutResId(R.layout.fragment_first)
 class FirstFragment : BaseViewPagerFragment(){
@@ -84,7 +84,7 @@ class FirstFragment : BaseViewPagerFragment(){
 }
 ```
 
-### BaseRecyclerViewAdapter
+### BaseRecyclerViewAdapter    \[[To Top](#application-manager-utils)\]
 Extends
 ```
 class ImageListAdapter : BaseRecyclerViewAdapter<String>() {
@@ -112,7 +112,7 @@ adapter.onItemLongClickListener = this
 adapter.setDataList(imageList)
 ```
 
-### MVP Struct
+### MVP Struct    \[[To Top](#application-manager-utils)\]
 Contract
 ```
 interface Contract : BaseContract {
@@ -136,7 +136,7 @@ class Presenter : Contract.Presenter {
 }
 ```
 
-### Http Request
+### Http Request    \[[To Top](#application-manager-utils)\]
 >Integrated RxJava, RxAndroid, OkHttp, FastJSON
 
 Api Config
@@ -174,7 +174,7 @@ class Obs(activity: BaseActivity) : RxKotlin.RxObserver<ProjectModel>(activity) 
 }
 ```
 
-### BroadcastHelper
+### BroadcastHelper    \[[To Top](#application-manager-utils)\]
 ```
 // Register
 BroadcastHelper.register(): Boolean
@@ -189,7 +189,7 @@ BroadcastHelper.send()
 BroadcastHelper.sendSync()
 ```
 
-### HandlerHelper
+### HandlerHelper    \[[To Top](#application-manager-utils)\]
 ```
 // Create
 HandlerHelper.create(): Handler?
@@ -210,7 +210,7 @@ HandlerHelper.remove()
 HandlerHelper.obtainMessage(): Message
 ```
 
-### PermissionHelper
+### PermissionHelper    \[[To Top](#application-manager-utils)\]
 ```
 // Check
 PermissionHelper.check(): Boolean
@@ -219,7 +219,7 @@ PermissionHelper.check(): Boolean
 PermissionHelper.request()
 ```
 
-### SharedPreferencesHelper
+### SharedPreferencesHelper    \[[To Top](#application-manager-utils)\]
 ```
 // Set
 SharedPreferencesHelper.set(key, value)
@@ -228,7 +228,7 @@ SharedPreferencesHelper.set(key, value)
 SharedPreferencesHelper.get(key, <T>, default): T?
 ```
 
-### UIHelper
+### UIHelper    \[[To Top](#application-manager-utils)\]
 ```
 // Show toast layout.
 UIHelper.showToast()
@@ -255,7 +255,7 @@ UIHelper.quickToForResult()
 UIHelper.get()
 ```
 
-### ImageLoader
+### ImageLoader    \[[To Top](#application-manager-utils)\]
 ```
 // Load image.
 ImageLoader.load()
