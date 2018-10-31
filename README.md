@@ -30,7 +30,7 @@ dependencies {
 [ImageLoader](#imageloader)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
-### AppManager    \[[To Top](#application-manager-utils)\]
+### AppManager
 ./Application.kt
 ```
 override fun onCreate() {
@@ -53,20 +53,20 @@ AppManager.last(): Activity
 AppManager.exit()
 ```
 
-### BaseActivity    \[[To Top](#application-manager-utils)\]
+### BaseActivity
 ```
 @LayoutResId(R.layout.activity_first)
 @PageDefaultOptions(title = "FirstActivity")
 class FirstActivity : BaseActivity() {}
 ```
 
-### BaseFragment    \[[To Top](#application-manager-utils)\]
+### BaseFragment
 ```
 @LayoutResId(R.layout.fragment_first)
 class FirstFragment : BaseFragment() {}
 ```
 
-### BaseViewPagerFragment    \[[To Top](#application-manager-utils)\]
+### BaseViewPagerFragment
 ```
 @LayoutResId(R.layout.fragment_first)
 class FirstFragment : BaseViewPagerFragment(){
@@ -84,7 +84,7 @@ class FirstFragment : BaseViewPagerFragment(){
 }
 ```
 
-### BaseRecyclerViewAdapter    \[[To Top](#application-manager-utils)\]
+### BaseRecyclerViewAdapter
 Extends
 ```
 class ImageListAdapter : BaseRecyclerViewAdapter<String>() {
@@ -112,7 +112,7 @@ adapter.onItemLongClickListener = this
 adapter.setDataList(imageList)
 ```
 
-### MVP Struct    \[[To Top](#application-manager-utils)\]
+### MVP Struct
 Contract
 ```
 interface Contract : BaseContract {
@@ -136,7 +136,7 @@ class Presenter : Contract.Presenter {
 }
 ```
 
-### Http Request    \[[To Top](#application-manager-utils)\]
+### Http Request
 >Integrated RxJava, RxAndroid, OkHttp, FastJSON
 
 Api Config
@@ -174,7 +174,7 @@ class Obs(activity: BaseActivity) : RxKotlin.RxObserver<ProjectModel>(activity) 
 }
 ```
 
-### BroadcastHelper    \[[To Top](#application-manager-utils)\]
+### BroadcastHelper
 ```
 // Register
 BroadcastHelper.register(): Boolean
@@ -189,7 +189,7 @@ BroadcastHelper.send()
 BroadcastHelper.sendSync()
 ```
 
-### HandlerHelper    \[[To Top](#application-manager-utils)\]
+### HandlerHelper
 ```
 // Create
 HandlerHelper.create(): Handler?
@@ -210,7 +210,7 @@ HandlerHelper.remove()
 HandlerHelper.obtainMessage(): Message
 ```
 
-### PermissionHelper    \[[To Top](#application-manager-utils)\]
+### PermissionHelper
 ```
 // Check
 PermissionHelper.check(): Boolean
@@ -219,7 +219,7 @@ PermissionHelper.check(): Boolean
 PermissionHelper.request()
 ```
 
-### SharedPreferencesHelper    \[[To Top](#application-manager-utils)\]
+### SharedPreferencesHelper
 ```
 // Set
 SharedPreferencesHelper.set(key, value)
@@ -228,7 +228,7 @@ SharedPreferencesHelper.set(key, value)
 SharedPreferencesHelper.get(key, <T>, default): T?
 ```
 
-### UIHelper    \[[To Top](#application-manager-utils)\]
+### UIHelper
 ```
 // Show toast layout.
 UIHelper.showToast()
@@ -255,7 +255,7 @@ UIHelper.quickToForResult()
 UIHelper.get()
 ```
 
-### ImageLoader    \[[To Top](#application-manager-utils)\]
+### ImageLoader
 ```
 // Load image.
 ImageLoader.load()
