@@ -71,7 +71,7 @@ class AppManager private constructor() : Stack<Activity>() {
          * @return Activity实例
          * */
         fun add(activity: Activity): Activity {
-            var act: Activity? = null
+            var act: Activity?
             synchronized(instance) {
                 act = instance.push(activity)
                 instance.status()
