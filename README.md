@@ -15,22 +15,22 @@ dependencies {
 ```
 
 ### Application manager utils
-[AppManager](#appmanager)
-[BaseActivity](#baseactivity)
-[BaseFragment](#basefragment)
-[BaseViewPagerFragment](#baseviewpagerfragment)
-[BaseRecyclerViewAdapter](#baserecyclerviewadapter)
-[MVP Struct](#mvp-struct)
-[Http Request](#http-request)
-[BroadcastHelper](#broadcasthelper)
-[HandlerHelper](#handlerhelper)
-[PermissionHelper](#permissionhelper)
-[SharedPreferencesHelper](#sharedpreferenceshelper)
-[UIHelper](#uihelper)
-[ImageLoader](#imageloader)
+[AppManager](#appmanager)&nbsp;&nbsp;&nbsp;&nbsp;
+[BaseActivity](#baseactivity)&nbsp;&nbsp;&nbsp;&nbsp;
+[BaseFragment](#basefragment)&nbsp;&nbsp;&nbsp;&nbsp;
+[BaseViewPagerFragment](#baseviewpagerfragment)&nbsp;&nbsp;&nbsp;&nbsp;
+[BaseRecyclerViewAdapter](#baserecyclerviewadapter)&nbsp;&nbsp;&nbsp;&nbsp;
+[MVP Struct](#mvp-struct)&nbsp;&nbsp;&nbsp;&nbsp;
+[Http Request](#http-request)&nbsp;&nbsp;&nbsp;&nbsp;
+[BroadcastHelper](#broadcasthelper)&nbsp;&nbsp;&nbsp;&nbsp;
+[HandlerHelper](#handlerhelper)&nbsp;&nbsp;&nbsp;&nbsp;
+[PermissionHelper](#permissionhelper)&nbsp;&nbsp;&nbsp;&nbsp;
+[SharedPreferencesHelper](#sharedpreferenceshelper)&nbsp;&nbsp;&nbsp;&nbsp;
+[UIHelper](#uihelper)&nbsp;&nbsp;&nbsp;&nbsp;
+[ImageLoader](#imageloader)&nbsp;&nbsp;&nbsp;&nbsp;
 
 
-### AppManager
+### AppManager    [Top](#application-manager-utils)
 ./Application.kt
 ```
 override fun onCreate() {
@@ -53,14 +53,14 @@ AppManager.last(): Activity
 AppManager.exit()
 ```
 
-### BaseActivity
+### BaseActivity    [Top](#application-manager-utils)
 ```
 @LayoutResId(R.layout.activity_first)
 @PageDefaultOptions(title = "FirstActivity")
 class FirstActivity : BaseActivity() {}
 ```
 
-### BaseFragment
+### BaseFragment    [Top](#application-manager-utils)
 ```
 @LayoutResId(R.layout.fragment_first)
 class FirstFragment : BaseFragment() {}
