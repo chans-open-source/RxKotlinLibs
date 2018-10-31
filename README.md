@@ -14,6 +14,22 @@ dependencies {
 }
 ```
 
+### Application manager utils
+[AppManager](#appmanager)
+[BaseActivity](#baseactivity)
+[BaseFragment](#basefragment)
+[BaseViewPagerFragment](#baseviewpagerfragment)
+[BaseRecyclerViewAdapter](#baserecyclerviewadapter)
+[MVP Struct](#mvp-struct)
+[Http Request](#http-request)
+[BroadcastHelper](#broadcasthelper)
+[HandlerHelper](#handlerhelper)
+[PermissionHelper](#permissionhelper)
+[SharedPreferencesHelper](#sharedpreferenceshelper)
+[UIHelper](#uihelper)
+[ImageLoader](#imageloader)
+
+
 ### AppManager
 ./Application.kt
 ```
