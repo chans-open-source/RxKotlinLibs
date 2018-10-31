@@ -141,6 +141,7 @@ class Presenter : Contract.Presenter {
 
 Api Config
 ```
+@Domain("https://www.chansos.com/api/")
 @BaseUrl("article/")
 interface Test {
   @GET("project")

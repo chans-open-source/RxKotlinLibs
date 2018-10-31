@@ -6,6 +6,7 @@ package com.chansos.libs.rxkotlin.rx.service
 
 import com.chansos.libs.rxkotlin.rx.okhttp.OkHttpClient
 import com.chansos.libs.rxkotlin.rx.support.BaseUrl
+import com.chansos.libs.rxkotlin.rx.support.Domain
 import com.trello.rxlifecycle2.LifecycleTransformer
 import com.trello.rxlifecycle2.android.ActivityEvent
 import com.trello.rxlifecycle2.android.FragmentEvent
@@ -25,11 +26,6 @@ import retrofit2.converter.fastjson.FastJsonConverterFactory
 @Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 class ServiceHelper {
     companion object {
-        private var mDomain = ""
-
-        fun setDomain(domain: String) {
-            mDomain = domain
-        }
 
         /**
          * 创建代理类
@@ -48,9 +44,11 @@ class ServiceHelper {
          * 获取根Url
          */
         private fun getBaseUrl(api: Class<*>): String {
-            val present = api.isAnnotationPresent(BaseUrl::class.java)
-            val annotation = if (present) api.getAnnotation(BaseUrl::class.java) else null
-            return "$mDomain${annotation?.value ?: ""}"
+            val domainP = api.isAnnotationPresent(Domain::class.java)
+            val domain = if (domainP) api.getAnnotation(Domain::class.java) else null
+            val baseUrlP = api.isAnnotationPresent(BaseUrl::class.java)
+            val baseUrl = if (baseUrlP) api.getAnnotation(BaseUrl::class.java) else null
+            return "${domain?.value ?: ""}${baseUrl?.value ?: ""}"
         }
 
         /**
