@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.chansos.libs.rxkotlin.handler.HandlerHelper
+import com.chansos.libs.rxkotlin.AppHelper
 import com.chansos.libs.rxkotlin.obj.ObjectUtils
 import com.trello.rxlifecycle2.components.support.RxFragment
 
@@ -47,7 +47,7 @@ abstract class BaseFragment : RxFragment(), Clickable, Initializable, Autowire {
 
     override fun onDestroy() {
         super.onDestroy()
-        HandlerHelper.destory(self)
+        AppHelper.Handler.destory(self)
         ObjectUtils.destory(self)
     }
 }

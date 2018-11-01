@@ -7,7 +7,7 @@ package com.chansos.libs.rxkotlin.rx.support
 import android.app.Activity
 import android.support.v4.app.Fragment
 import com.afollestad.materialdialogs.MaterialDialog
-import com.chansos.libs.rxkotlin.ui.UIHelper
+import com.chansos.libs.rxkotlin.AppHelper
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 
@@ -53,14 +53,14 @@ open class RxObserver<T> : Observer<T> {
      * 显示加载提示
      * */
     open fun showLoading() {
-        this.loadingDialog = UIHelper.showLoading(activity)
+        this.loadingDialog = AppHelper.UI.showLoading(activity)
     }
 
     /**
      * 隐藏加载提示
      * */
     open fun hideLoading() {
-        UIHelper.hideLoading(activity)
+        AppHelper.UI.hideLoading(activity)
     }
 
     /**

@@ -5,7 +5,7 @@
 package com.chansos.libs.rxkotlin.base
 
 import android.view.View
-import com.chansos.libs.rxkotlin.ui.UIHelper
+import com.chansos.libs.rxkotlin.AppHelper
 
 /**
  * 可点击
@@ -15,12 +15,12 @@ interface Clickable : View.OnClickListener, View.OnLongClickListener {
     /**
      * 绑定点击事件
      * */
-    fun bindClick(vararg views: View) = UIHelper.bindClick(this, *views)
+    fun bindClick(vararg views: View) = AppHelper.UI.bindClick(this, *views)
 
     /**
      * 绑定长按事件
      * */
-    fun bindLongClick(vararg views: View) = UIHelper.bindLongClick(this, *views)
+    fun bindLongClick(vararg views: View) = AppHelper.UI.bindLongClick(this, *views)
 
     override fun onClick(view: View?) {
     }

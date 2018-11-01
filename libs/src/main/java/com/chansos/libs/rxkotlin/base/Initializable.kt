@@ -4,7 +4,7 @@
 
 package com.chansos.libs.rxkotlin.base
 
-import com.chansos.libs.rxkotlin.ui.UIHelper
+import com.chansos.libs.rxkotlin.AppHelper
 
 /**
  * 可初始化的
@@ -19,5 +19,5 @@ interface Initializable {
     /**
      * 获取LayoutId
      * */
-    fun getLayoutResId(): Int = UIHelper.getLayoutResId(this.javaClass)
+    fun getLayoutResId(): Int = AppHelper.UI.getLayoutResId(this.javaClass)
 }

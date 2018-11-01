@@ -8,9 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.chansos.libs.rxkotlin.image.ImageLoader
+import com.chansos.libs.rxkotlin.AppHelper
 import com.chansos.libs.rxkotlin.obj.ObjectUtils
-import com.chansos.libs.rxkotlin.ui.UIHelper
 
 @Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 class BaseRecyclerViewHolder(itemView: View, private val context: Context) : RecyclerView.ViewHolder(itemView) {
@@ -32,7 +31,7 @@ class BaseRecyclerViewHolder(itemView: View, private val context: Context) : Rec
      * 从子RecyclerView的子View中获取View实例
      * */
     fun <T : View?> get(viewId: Int): T {
-        return UIHelper.get<T>(itemView, viewId)
+        return AppHelper.UI.get<T>(itemView, viewId)
     }
 
     /**
@@ -40,9 +39,9 @@ class BaseRecyclerViewHolder(itemView: View, private val context: Context) : Rec
      * */
     fun setImage(viewId: Int, image: String) {
         if (context is Activity) {
-            ImageLoader.load(get(viewId), image, context)
+            AppHelper.Image.load(get(viewId), image, context)
         } else if (context is Fragment) {
-            ImageLoader.load(get(viewId), image, context)
+            AppHelper.Image.load(get(viewId), image, context)
         }
         imageViewList.add(viewId)
     }
@@ -52,9 +51,9 @@ class BaseRecyclerViewHolder(itemView: View, private val context: Context) : Rec
      * */
     fun setImage(viewId: Int, image: Int) {
         if (context is Activity) {
-            ImageLoader.load(get(viewId), image, context)
+            AppHelper.Image.load(get(viewId), image, context)
         } else if (context is Fragment) {
-            ImageLoader.load(get(viewId), image, context)
+            AppHelper.Image.load(get(viewId), image, context)
         }
         imageViewList.add(viewId)
     }
@@ -80,9 +79,9 @@ class BaseRecyclerViewHolder(itemView: View, private val context: Context) : Rec
         imageViewList.forEach { viewId ->
             run {
                 if (context is Activity && !context.isDestroyed) {
-                    ImageLoader.release(get(viewId), context)
+                    AppHelper.Image.release(get(viewId), context)
                 } else if (context is Fragment && !context.isDetached) {
-                    ImageLoader.release(get(viewId), context)
+                    AppHelper.Image.release(get(viewId), context)
                 }
             }
         }

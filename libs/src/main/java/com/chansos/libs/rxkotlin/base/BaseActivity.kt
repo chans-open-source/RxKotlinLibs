@@ -6,11 +6,10 @@ package com.chansos.libs.rxkotlin.base
 
 import android.os.Bundle
 import android.view.Menu
+import com.chansos.libs.rxkotlin.AppHelper
 import com.chansos.libs.rxkotlin.AppManager
-import com.chansos.libs.rxkotlin.handler.HandlerHelper
 import com.chansos.libs.rxkotlin.log.LogUtils
 import com.chansos.libs.rxkotlin.obj.ObjectUtils
-import com.chansos.libs.rxkotlin.ui.UIHelper
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 
 /**
@@ -33,8 +32,8 @@ abstract class BaseActivity : RxAppCompatActivity(), Clickable, Initializable, A
     override fun onDestroy() {
         super.onDestroy()
         AppManager.remove(self)
-        UIHelper.removeLoadingDialog(self)
-        HandlerHelper.destory(self)
+        AppHelper.UI.removeLoadingDialog(self)
+        AppHelper.Handler.destory(self)
         ObjectUtils.destory(self)
     }
 

@@ -14,9 +14,9 @@ import android.support.v4.app.Fragment
 import android.view.View
 import android.widget.Toast
 import com.afollestad.materialdialogs.MaterialDialog
+import com.chansos.libs.rxkotlin.AppHelper
 import com.chansos.libs.rxkotlin.AppManager
 import com.chansos.libs.rxkotlin.anno.LayoutResId
-import com.chansos.libs.rxkotlin.handler.HandlerHelper
 import com.chansos.libs.rxkotlin.handler.OnHandlerMessage
 import java.util.concurrent.ConcurrentHashMap
 
@@ -34,7 +34,7 @@ class UIHelper : OnHandlerMessage {
     }
 
     init {
-        HandlerHelper.create(this, this)
+        AppHelper.Handler.create(this, this)
     }
 
     private val toast: Toast by lazy {
@@ -141,7 +141,7 @@ class UIHelper : OnHandlerMessage {
      *
      * @param dialog 对话框实例
      * */
-    fun hideLoading(dialog: MaterialDialog) = HandlerHelper.sendMessage(
+    fun hideLoading(dialog: MaterialDialog) = AppHelper.Handler.sendMessage(
         this,
         UIHelper.HIDE_LOADING, dialog
     )
@@ -259,12 +259,12 @@ class UIHelper : OnHandlerMessage {
 
         fun dismiss(): DialogConfig {
             if ((now() - time) >= UIHelper.HIDE_LOADING_DELAY) {
-                HandlerHelper.sendMessage(
+                AppHelper.Handler.sendMessage(
                     obj,
                     UIHelper.HIDE_LOADING, dialog
                 )
             } else {
-                HandlerHelper.sendMessageDelayed(
+                AppHelper.Handler.sendMessageDelayed(
                     obj,
                     UIHelper.HIDE_LOADING, dialog,
                     UIHelper.HIDE_LOADING_DELAY
