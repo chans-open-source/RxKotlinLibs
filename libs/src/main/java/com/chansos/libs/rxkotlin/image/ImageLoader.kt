@@ -21,7 +21,7 @@ import java.io.File
  * */
 @SuppressLint("CheckResult")
 @Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
-class ImageLoader {
+class ImageLoader internal constructor() {
     /**
      * 缓存加载器选项
      * */

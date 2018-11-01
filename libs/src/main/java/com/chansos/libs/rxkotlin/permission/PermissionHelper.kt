@@ -8,7 +8,7 @@ import com.chansos.libs.rxkotlin.AppManager
  * 权限管理工具
  * */
 @Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
-class PermissionHelper {
+class PermissionHelper internal constructor() {
     companion object {
         const val REQUEST_CODE = 0x400
     }

@@ -7,7 +7,7 @@ import com.chansos.libs.rxkotlin.AppManager
  * 处理未被捕捉的异常
  * */
 @Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
-class CrashHandler : Thread.UncaughtExceptionHandler {
+internal class CrashHandler : Thread.UncaughtExceptionHandler {
     /**
      * 默认异常处理器实例
      * */

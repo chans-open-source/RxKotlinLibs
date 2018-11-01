@@ -11,7 +11,7 @@ import com.chansos.libs.rxkotlin.AppHelper
  * 可点击
  * */
 @Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
-interface Clickable : View.OnClickListener, View.OnLongClickListener {
+internal interface Clickable : View.OnClickListener, View.OnLongClickListener {
     /**
      * 绑定点击事件
      * */

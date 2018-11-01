@@ -34,4 +34,5 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+//tasks.getByPath(":app:lint").enabled = false
 tasks.getByPath(":libs:releaseAndroidJavadocs").enabled = false

@@ -7,8 +7,8 @@ package com.chansos.libs.rxkotlin.base
 import android.app.Activity
 import android.text.TextUtils
 import com.chansos.libs.rxkotlin.AppManager
-import com.chansos.libs.rxkotlin.anno.AutowirePresent
-import com.chansos.libs.rxkotlin.anno.PageDefaultOptions
+import com.chansos.libs.rxkotlin.anno.ModulePresenter
+import com.chansos.libs.rxkotlin.anno.PageOptions
 import com.chansos.libs.rxkotlin.log.LogUtils
 import com.chansos.libs.rxkotlin.obj.ObjectUtils
 
@@ -16,7 +16,7 @@ import com.chansos.libs.rxkotlin.obj.ObjectUtils
  * 自动装配
  * */
 @Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
-interface Autowire {
+internal interface Autowire {
     fun autowire() {
         autowirePageDefaultOptions()
         autowirePresenter()
@@ -34,7 +34,7 @@ interface Autowire {
      * */
     fun autowirePageDefaultOptions() {
         val clazz = this.javaClass
-        val annotation = clazz.getAnnotation(PageDefaultOptions::class.java)
+        val annotation = clazz.getAnnotation(PageOptions::class.java)
         if (annotation != null && (this is Activity)) {
             if (validOption(annotation.theme)) {
                 this.setTheme(annotation.theme)
@@ -54,7 +54,7 @@ interface Autowire {
      * 自动装配Presenter
      * */
     fun autowirePresenter() {
-        val annotation = this.javaClass.getAnnotation(AutowirePresent::class.java)
+        val annotation = this.javaClass.getAnnotation(ModulePresenter::class.java)
         if (annotation != null) {
             var path: String = annotation.path
             val clazz = annotation.clazz

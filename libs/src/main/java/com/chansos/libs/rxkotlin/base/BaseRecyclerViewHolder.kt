@@ -12,7 +12,7 @@ import com.chansos.libs.rxkotlin.AppHelper
 import com.chansos.libs.rxkotlin.obj.ObjectUtils
 
 @Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
-class BaseRecyclerViewHolder(itemView: View, private val context: Context) : RecyclerView.ViewHolder(itemView) {
+class BaseRecyclerViewHolder internal constructor(itemView: View, private val context: Context) : RecyclerView.ViewHolder(itemView) {
     private val imageViewList: HashSet<Int> by lazy {
         HashSet<Int>()
     }

@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap
  * Handler操作工具
  * */
 @Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
-class HandlerHelper {
+class HandlerHelper internal constructor() {
     private val handlerMapper: ConcurrentHashMap<Int, Handler> by lazy {
         ConcurrentHashMap<Int, Handler>()
     }
@@ -84,7 +84,7 @@ class HandlerHelper {
      *
      * @return 是否发送成功
      * */
-    fun sendDelayed(obj: Any, msg: Message, delay: Long): Boolean =  create(obj, null).sendMessageDelayed(msg, delay)
+    fun sendDelayed(obj: Any, msg: Message, delay: Long): Boolean = create(obj, null).sendMessageDelayed(msg, delay)
 
     /**
      * 数毫秒后发送一个消息
@@ -120,7 +120,7 @@ class HandlerHelper {
      *
      * @param obj 操作对象
      * */
-    fun destory(obj: Any) =  handlerMapper.remove(obj.hashCode())
+    fun destory(obj: Any) = handlerMapper.remove(obj.hashCode())
 
     /**
      * 从消息池中获取消息实例
@@ -129,7 +129,7 @@ class HandlerHelper {
      *
      * @return 消息实例
      * */
-    fun obtainMessage(obj: Any): Message =create(obj, null).obtainMessage()
+    fun obtainMessage(obj: Any): Message = create(obj, null).obtainMessage()
 
     /**
      * 从消息池中获取消息实例
@@ -139,7 +139,7 @@ class HandlerHelper {
      *
      * @return 消息实例
      * */
-    fun obtainMessage(obj: Any, what: Int): Message =create(obj, null).obtainMessage(what)
+    fun obtainMessage(obj: Any, what: Int): Message = create(obj, null).obtainMessage(what)
 
     /**
      * 从消息池中获取消息实例
@@ -150,7 +150,7 @@ class HandlerHelper {
      *
      * @return 消息实例
      * */
-    fun obtainMessage(obj: Any, what: Int, msgObj: Any): Message =create(obj, null).obtainMessage(what, msgObj)
+    fun obtainMessage(obj: Any, what: Int, msgObj: Any): Message = create(obj, null).obtainMessage(what, msgObj)
 
     /**
      * 从消息池中获取消息实例

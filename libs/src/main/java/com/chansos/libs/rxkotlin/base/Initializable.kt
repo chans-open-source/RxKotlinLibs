@@ -10,7 +10,7 @@ import com.chansos.libs.rxkotlin.AppHelper
  * 可初始化的
  * */
 @Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
-interface Initializable {
+internal interface Initializable {
     /**
      * 初始化
      * */

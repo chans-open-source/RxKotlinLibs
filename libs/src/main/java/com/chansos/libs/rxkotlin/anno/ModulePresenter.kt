@@ -11,4 +11,4 @@ import kotlin.reflect.KClass
  * 自动装配Presenter
  * */
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FILE)
-annotation class AutowirePresent(val path: String = "", val clazz: KClass<out BaseContract.BasePresenter> = BaseContract.BasePresenter::class)
+annotation class ModulePresenter(val path: String = "", val clazz: KClass<out BaseContract.BasePresenter> = BaseContract.BasePresenter::class)

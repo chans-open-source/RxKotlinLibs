@@ -10,7 +10,7 @@ import com.chansos.libs.rxkotlin.AppManager
  * 广播管理器
  * */
 @Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
-class BroadcastHelper {
+class BroadcastHelper internal constructor() {
 
     internal val receiverManager: LocalBroadcastManager by lazy {
         LocalBroadcastManager.getInstance(AppManager.getContext())

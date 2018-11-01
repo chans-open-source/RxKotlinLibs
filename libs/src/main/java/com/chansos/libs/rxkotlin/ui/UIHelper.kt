@@ -16,7 +16,7 @@ import android.widget.Toast
 import com.afollestad.materialdialogs.MaterialDialog
 import com.chansos.libs.rxkotlin.AppHelper
 import com.chansos.libs.rxkotlin.AppManager
-import com.chansos.libs.rxkotlin.anno.LayoutResId
+import com.chansos.libs.rxkotlin.anno.PageLayoutId
 import com.chansos.libs.rxkotlin.handler.OnHandlerMessage
 import java.util.concurrent.ConcurrentHashMap
 
@@ -26,7 +26,7 @@ import java.util.concurrent.ConcurrentHashMap
  * */
 @SuppressLint("ShowToast")
 @Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
-class UIHelper : OnHandlerMessage {
+class UIHelper internal constructor() : OnHandlerMessage {
     companion object {
         private const val HIDE_LOADING_DELAY = 300L
         private const val HIDE_LOADING = 0x1
@@ -169,7 +169,7 @@ class UIHelper : OnHandlerMessage {
      *
      * @return LayoutResId注解的值
      * */
-    fun getLayoutResId(clazz: Class<*>): Int = clazz.getAnnotation(LayoutResId::class.java)?.id
+    fun getLayoutResId(clazz: Class<*>): Int = clazz.getAnnotation(PageLayoutId::class.java)?.id
         ?: 0x0
 
     /**

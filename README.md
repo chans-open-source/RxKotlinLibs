@@ -55,20 +55,20 @@ AppManager.exit()
 
 ### BaseActivity
 ```
-@LayoutResId(R.layout.activity_first)
-@PageDefaultOptions(title = "FirstActivity")
+@PageLayoutId(R.layout.activity_first)
+@PageOptions(title = "FirstActivity")
 class FirstActivity : BaseActivity() {}
 ```
 
 ### BaseFragment
 ```
-@LayoutResId(R.layout.fragment_first)
+@PageLayoutId(R.layout.fragment_first)
 class FirstFragment : BaseFragment() {}
 ```
 
 ### BaseViewPagerFragment
 ```
-@LayoutResId(R.layout.fragment_first)
+@PageLayoutId(R.layout.fragment_first)
 class FirstFragment : BaseViewPagerFragment(){
   override fun onInitialize() {
   // Initialize instance.
@@ -123,8 +123,8 @@ interface Contract : BaseContract {
 ```
 View
 ```
-@LayoutResId(R.layout.fragment_first)
-@AutowirePresent("com.chansos.rxandroid.kotlin.module.first.Presenter")
+@PageLayoutId(R.layout.fragment_first)
+@ModulePresenter("com.chansos.rxandroid.kotlin.module.first.Presenter")
 class FirstFragment : BaseViewPagerFragment(), Contract.View {
   private lateinit var presenter: Presenter
 }

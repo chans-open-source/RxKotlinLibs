@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap
  * SharedPreferences操作工具
  * */
 @Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
-class SharedPreferencesHelper {
+class SharedPreferencesHelper internal constructor() {
     private val defaultKey: String by lazy {
         AppManager.getContext().packageName
     }
