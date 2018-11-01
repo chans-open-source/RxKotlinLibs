@@ -4,8 +4,11 @@
 
 package com.chansos.libs.rxkotlin.anno
 
+import com.chansos.libs.rxkotlin.base.BaseContract
+import kotlin.reflect.KClass
+
 /**
  * 自动装配Presenter
  * */
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FILE)
-annotation class AutowirePresent(val path: String)
+annotation class AutowirePresent(val path: String = "", val clazz: KClass<out BaseContract.BasePresenter> = BaseContract.BasePresenter::class)

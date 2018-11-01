@@ -9,6 +9,7 @@ import android.text.TextUtils
 import com.chansos.libs.rxkotlin.AppManager
 import com.chansos.libs.rxkotlin.anno.AutowirePresent
 import com.chansos.libs.rxkotlin.anno.PageDefaultOptions
+import com.chansos.libs.rxkotlin.log.LogUtils
 import com.chansos.libs.rxkotlin.obj.ObjectUtils
 
 /**
@@ -53,14 +54,23 @@ interface Autowire {
      * 自动装配Presenter
      * */
     fun autowirePresenter() {
-        val clazz = this.javaClass
-        val annotation = clazz.getAnnotation(AutowirePresent::class.java)
-        if (annotation != null && !TextUtils.isEmpty(annotation.path)) {
-            val presenterClass = Class.forName(annotation.path)
-            val constructor = presenterClass.getConstructor()
-            val presenter = constructor.newInstance() as BaseContract.BasePresenter?
-            presenter!!.bind(this as BaseContract.BaseView)
-            ObjectUtils.inject(this, "presenter", presenter)
+        val annotation = this.javaClass.getAnnotation(AutowirePresent::class.java)
+        if (annotation != null) {
+            var path: String = annotation.path
+            val clazz = annotation.clazz
+            if (TextUtils.isEmpty(path) && clazz != BaseContract.BasePresenter::class) {
+                path = clazz.qualifiedName ?: ""
+            }
+            if (!TextUtils.isEmpty(path)) {
+                try {
+                    val constructor = Class.forName(path).getConstructor()
+                    val presenter = constructor.newInstance() as BaseContract.BasePresenter?
+                    presenter!!.bind(this as BaseContract.BaseView)
+                    ObjectUtils.inject(this, "presenter", presenter)
+                } catch (e: Exception) {
+                    LogUtils.e(e)
+                }
+            }
         }
     }
 }
