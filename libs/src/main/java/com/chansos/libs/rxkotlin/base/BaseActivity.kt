@@ -8,8 +8,8 @@ import android.os.Bundle
 import android.view.Menu
 import com.chansos.libs.rxkotlin.AppManager
 import com.chansos.libs.rxkotlin.handler.HandlerHelper
-import com.chansos.libs.rxkotlin.support.LogUtils
-import com.chansos.libs.rxkotlin.support.ObjectUtils
+import com.chansos.libs.rxkotlin.log.LogUtils
+import com.chansos.libs.rxkotlin.obj.ObjectUtils
 import com.chansos.libs.rxkotlin.ui.UIHelper
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 

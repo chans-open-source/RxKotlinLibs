@@ -2,7 +2,7 @@
  * Copyright (c) 2018. Create and edit by ChangedenChan.
  */
 
-package com.chansos.libs.rxkotlin.rx
+package com.chansos.libs.rxkotlin
 
 import com.chansos.libs.rxkotlin.base.BaseActivity
 import com.chansos.libs.rxkotlin.base.BaseFragment
@@ -10,7 +10,7 @@ import com.chansos.libs.rxkotlin.rx.service.Service
 import com.chansos.libs.rxkotlin.rx.service.ServiceHelper
 
 @Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
-class RxKotlin {
+class RxRequest {
     companion object {
         /**
          * 创建网络服务实例

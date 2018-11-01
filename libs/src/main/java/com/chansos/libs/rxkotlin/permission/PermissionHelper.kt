@@ -1,6 +1,8 @@
 package com.chansos.libs.rxkotlin.permission
 
 import android.app.Activity
+import android.support.v4.app.ActivityCompat
+import com.chansos.libs.rxkotlin.AppManager
 
 /**
  * 权限管理工具
@@ -8,32 +10,40 @@ import android.app.Activity
 @Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 class PermissionHelper {
     companion object {
-        private val instance: PermissionSupport by lazy {
-            PermissionSupport()
-        }
+        const val REQUEST_CODE = 0x400
+    }
 
-        /**
-         * 检测某个权限是否已授权
-         * @param permission 权限
-         *
-         * @return 检测结果
-         * */
-        fun check(permission: String): Boolean = instance.check(permission)
+    /**
+     * 检测某个权限是否已授权
+     * @param permission 权限
+     *
+     * @return 检测结果
+     * */
+    fun check(permission: String): Boolean {
+        return ActivityCompat.checkSelfPermission(
+            AppManager.getContext(),
+            permission
+        ) == android.content.pm.PackageManager.PERMISSION_GRANTED
+    }
 
-        /**
-         * 请求授权某个权限
-         *
-         * @param activity Activity实例
-         * @param permission 权限
-         * */
-        fun request(activity: Activity, permission: String) = instance.request(activity, permission)
+    /**
+     * 请求授权某个权限
+     *
+     * @param activity Activity实例
+     * @param permission 权限
+     * */
+    fun request(activity: Activity, permission: String) = request(activity, Array(1) { permission })
 
-        /**
-         * 请求授权某个权限
-         *
-         * @param activity Activity实例
-         * @param permissions 权限数组
-         * */
-        fun request(activity: Activity, permissions: Array<String>) = instance.request(activity, permissions)
+    /**
+     * 请求授权某个权限
+     *
+     * @param activity Activity实例
+     * @param permissions 权限数组
+     * */
+    fun request(activity: Activity, permissions: Array<String>) {
+        ActivityCompat.requestPermissions(
+            activity, permissions,
+            PermissionHelper.REQUEST_CODE
+        )
     }
 }

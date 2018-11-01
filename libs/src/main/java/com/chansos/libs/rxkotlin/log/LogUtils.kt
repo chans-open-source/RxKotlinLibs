@@ -2,7 +2,7 @@
  * Copyright (c) 2018. Create and edit by ChangedenChan.
  */
 
-package com.chansos.libs.rxkotlin.support
+package com.chansos.libs.rxkotlin.log
 
 import android.util.Log
 
@@ -32,7 +32,10 @@ class LogUtils {
          * @param message 内容
          * */
         fun i(message: String) {
-            log(message, Type.Info)
+            log(
+                message,
+                Type.Info
+            )
         }
 
         /**
@@ -51,7 +54,10 @@ class LogUtils {
          * @param message 错误内容
          * */
         fun e(message: String) {
-            log(message, Type.Error)
+            log(
+                message,
+                Type.Error
+            )
         }
 
         /**
@@ -60,7 +66,10 @@ class LogUtils {
          * @param message 内容
          * */
         fun d(message: String) {
-            log(message, Type.Debug)
+            log(
+                message,
+                Type.Debug
+            )
         }
 
         /**

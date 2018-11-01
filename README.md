@@ -156,14 +156,14 @@ class ProjectModel() : Parcelable {
 ```
 Request
 ```
-RxKotlin
+RxRequest
   .create<ProjectModel>(view as BaseActivity)
-  .api(RxKotlin.api(Test::class.java).projectList(1, 2))
+  .api(RxRequest.api(Test::class.java).projectList(1, 2))
   .obs(Obs(view as BaseActivity))
 ```
 Response Callback
 ```
-class Obs(activity: BaseActivity) : RxKotlin.RxObserver<ProjectModel>(activity) {
+class Obs(activity: BaseActivity) : RxRequest.RxObserver<ProjectModel>(activity) {
   override fun onNext(t: ProjectModel) {
     LogUtils.d(JSON.toJSONString(t))
   }
@@ -178,89 +178,89 @@ class Obs(activity: BaseActivity) : RxKotlin.RxObserver<ProjectModel>(activity) 
 ### BroadcastHelper
 ```
 // Register
-BroadcastHelper.register(): Boolean
+AppHelper.Broadcast.register(): Boolean
 
 // Unregister
-BroadcastHelper.unregister(): Boolean
+AppHelper.Broadcast.unregister(): Boolean
 
 // Send Broadcast
-BroadcastHelper.send()
+AppHelper.Broadcast.send()
 
 // Send Broadcast Synchronized
-BroadcastHelper.sendSync()
+AppHelper.Broadcast.sendSync()
 ```
 
 ### HandlerHelper
 ```
 // Create
-HandlerHelper.create(): Handler?
+AppHelper.Handler.create(): Handler?
 
 // Send Empty Message
-HandlerHelper.what(): Boolean
+AppHelper.Handler.what(): Boolean
 
 // Send Message Instance.
-HandlerHelper.send(): Boolean
+AppHelper.Handler.send(): Boolean
 
 // Send Config
-HandlerHelper.sendMessage(): Boolean
+AppHelper.Handler.sendMessage(): Boolean
 
 // Remove Message
-HandlerHelper.remove()
+AppHelper.Handler.remove()
 
 // Obtain Message
-HandlerHelper.obtainMessage(): Message
+AppHelper.Handler.obtainMessage(): Message
 ```
 
 ### PermissionHelper
 ```
 // Check
-PermissionHelper.check(): Boolean
+AppHelper.Permission.check(): Boolean
 
 // Request Permission
-PermissionHelper.request()
+AppHelper.Permission.request()
 ```
 
 ### SharedPreferencesHelper
 ```
 // Set
-SharedPreferencesHelper.set(key, value)
+AppHelper.SharedPreferences.set(key, value)
 
 // Get
-SharedPreferencesHelper.get(key, <T>, default): T?
+AppHelper.SharedPreferences.get(key, <T>, default): T?
 ```
 
 ### UIHelper
 ```
 // Show toast layout.
-UIHelper.showToast()
+AppHelper.UI.showToast()
 
 // Show loading dialog.
-UIHelper.showLoading()
+AppHelper.UI.showLoading()
 
 // Hide loading dialog.
-UIHelper.hideLoading()
+AppHelper.UI.hideLoading()
 
 // Bind click listener.
-UIHelper.bindClick()
+AppHelper.UI.bindClick()
 
 // Bind long click listener.
-UIHelper.bindLongClick()
+AppHelper.UI.bindLongClick()
 
 // Quick navigation to another activity.
-UIHelper.quickTo()
+AppHelper.UI.quickTo()
 
 // Navigation to another activity for result.
-UIHelper.quickToForResult()
+AppHelper.UI.quickToForResult()
 
 // Find view by id of layout.
-UIHelper.get()
+AppHelper.UI.get()
 ```
 
 ### ImageLoader
 ```
 // Load image.
-ImageLoader.load()
+AppHelper.Image.load()
 
 // Load image of no cache.
-ImageLoader.noCacheLoad()
+AppHelper.Image.noCacheLoad()
 ```

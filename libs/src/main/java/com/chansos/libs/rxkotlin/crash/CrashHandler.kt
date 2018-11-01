@@ -1,4 +1,4 @@
-package com.chansos.libs.rxkotlin.support
+package com.chansos.libs.rxkotlin.crash
 
 import com.chansos.libs.rxkotlin.AppManager
 

@@ -9,8 +9,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.res.Resources
 import android.support.v7.app.AppCompatActivity
-import com.chansos.libs.rxkotlin.support.CrashHandler
-import com.chansos.libs.rxkotlin.support.LogUtils
+import com.chansos.libs.rxkotlin.crash.CrashHandler
+import com.chansos.libs.rxkotlin.log.LogUtils
 import java.util.*
 
 /**

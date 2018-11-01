@@ -8,8 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.chansos.libs.rxkotlin.ImageLoader
-import com.chansos.libs.rxkotlin.support.ObjectUtils
+import com.chansos.libs.rxkotlin.image.ImageLoader
+import com.chansos.libs.rxkotlin.obj.ObjectUtils
 import com.chansos.libs.rxkotlin.ui.UIHelper
 
 @Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
