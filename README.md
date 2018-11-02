@@ -5,32 +5,48 @@
 >[Demo](https://github.com/ChangedenCZD/RxAndroid4Kotlin)
 
 ### Import
+>Import libs. 
+
 Module/build.gradle
 ```
 dependencies {
   ...
-  implementation 'com.chansos.libs:rxkotlin:0.0.4'
+  implementation 'com.chansos.libs:rxkotlin:0.2.0'
   ...
 }
 ```
 
 ### Application manager utils
-[AppManager](#appmanager)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[BaseActivity](#baseactivity)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[BaseFragment](#basefragment)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[BaseViewPagerFragment](#baseviewpagerfragment)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[BaseRecyclerViewAdapter](#baserecyclerviewadapter)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[MVP-Struct](#mvp-struct)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[Http-Request](#http-request)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[BroadcastHelper](#broadcasthelper)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[HandlerHelper](#handlerhelper)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[PermissionHelper](#permissionhelper)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[SharedPreferencesHelper](#sharedpreferenceshelper)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[UIHelper](#uihelper)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[ImageLoader](#imageloader)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+>[AppManager](#appmanager) : Manager all activity and application.
+
+>[BaseActivity](#baseactivity) : Extend BaseActivity and implement its methods to let you focus on developing your Activity.
+
+>[BaseFragment](#basefragment) : Extend BaseFragment and implement its methods to let you focus on developing your Fragment.
+
+>[BaseViewPagerFragment](#baseviewpagerfragment) : Extend BaseFragment and implement its methods to let you focus on developing your ViewPager.
+
+>[BaseRecyclerViewAdapter](#baserecyclerviewadapter) : Quickly create an Adapter instance of RecyclerView.
+
+>[MVP-Struct](#mvp-struct) : Implement MVP programing.
+
+>[Http-Request](#http-request) : Make a quick Http request.
+
+>[BroadcastHelper](#broadcasthelper) : Easily manage your broadcasts.
+
+>[HandlerHelper](#handlerhelper) : Easily manage your handlers.
+
+>[PermissionHelper](#permissionhelper) : Easily manage your permissions.
+
+>[SharedPreferencesHelper](#sharedpreferenceshelper) : Easily manage your shared preferences.
+
+>[UIHelper](#uihelper) : Quickly manipulate your UI.
+
+>[ImageLoader](#imageloader) : Easily load image into ImageView.
 
 
 ### AppManager
+>Manager all activity and application.
+
 ./Application.kt
 ```
 override fun onCreate() {
@@ -54,6 +70,8 @@ Kt.App.exit()
 ```
 
 ### BaseActivity
+>Extend BaseActivity and implement its methods to let you focus on developing your Activity.
+
 ```
 @PageLayoutId(R.layout.activity_first)
 @PageOptions(title = "FirstActivity")
@@ -61,12 +79,16 @@ class FirstActivity : BaseActivity() {}
 ```
 
 ### BaseFragment
+>Extend BaseFragment and implement its methods to let you focus on developing your Fragment.
+
 ```
 @PageLayoutId(R.layout.fragment_first)
 class FirstFragment : BaseFragment() {}
 ```
 
 ### BaseViewPagerFragment
+>Extend BaseFragment and implement its methods to let you focus on developing your ViewPager.
+
 ```
 @PageLayoutId(R.layout.fragment_first)
 class FirstFragment : BaseViewPagerFragment(){
@@ -85,6 +107,8 @@ class FirstFragment : BaseViewPagerFragment(){
 ```
 
 ### BaseRecyclerViewAdapter
+>Quickly create an Adapter instance of RecyclerView.
+
 Extends
 ```
 class ImageListAdapter : BaseRecyclerViewAdapter<String>() {
@@ -113,6 +137,8 @@ adapter.setDataList(imageList)
 ```
 
 ### MVP Struct
+>Implement MVP programing.
+
 Contract
 ```
 interface Contract : BaseContract {
@@ -137,6 +163,7 @@ class Presenter : Contract.Presenter {
 ```
 
 ### Http Request
+>Make a quick Http request.
 >Integrated RxJava, RxAndroid, OkHttp, FastJSON
 
 Api Config
@@ -176,6 +203,8 @@ class Obs(activity: BaseActivity) : Kt.Observer<ProjectModel>(activity) {
 ```
 
 ### BroadcastHelper
+>Easily manage your broadcasts.
+
 ```
 // Register
 Kt.Broadcast.register(): Boolean
@@ -191,6 +220,8 @@ Kt.Broadcast.sendSync()
 ```
 
 ### HandlerHelper
+>Easily manage your handlers.
+
 ```
 // Create
 Kt.Handler.create(): Handler?
@@ -212,6 +243,8 @@ Kt.Handler.obtainMessage(): Message
 ```
 
 ### PermissionHelper
+>Easily manage your permissions.
+
 ```
 // Check
 Kt.Permission.check(): Boolean
@@ -221,6 +254,8 @@ Kt.Permission.request()
 ```
 
 ### SharedPreferencesHelper
+>Easily manage your shared preferences.
+
 ```
 // Set
 Kt.SharedPreferences.set(key, value)
@@ -230,6 +265,8 @@ Kt.SharedPreferences.get(key, <T>, default): T?
 ```
 
 ### UIHelper
+>Quickly manipulate your UI.
+
 ```
 // Show toast layout.
 Kt.UI.showToast()
@@ -257,6 +294,8 @@ Kt.UI.get()
 ```
 
 ### ImageLoader
+>Easy to load image into ImageView.
+
 ```
 // Load image.
 Kt.Image.load()
