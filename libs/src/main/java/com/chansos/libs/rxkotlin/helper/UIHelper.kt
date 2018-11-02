@@ -4,7 +4,6 @@
 
 package com.chansos.libs.rxkotlin.helper
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -23,8 +22,6 @@ import java.util.concurrent.ConcurrentHashMap
  * UI操作工具
  * 用于控制Layout中的UI，以及Toast、LoadingDialog、Dialog等
  * */
-@SuppressLint("ShowToast")
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 class UIHelper internal constructor() : OnHandlerMessage {
     companion object {
         private const val HIDE_LOADING_DELAY = 300L
@@ -250,8 +247,10 @@ class UIHelper internal constructor() : OnHandlerMessage {
         private fun now() = System.currentTimeMillis()
 
         fun show(message: String): DialogConfig {
-            dialog.setContent(message)
-            dialog.show()
+            dialog.run {
+                setContent(message)
+                show()
+            }
             time = now()
             return this
         }

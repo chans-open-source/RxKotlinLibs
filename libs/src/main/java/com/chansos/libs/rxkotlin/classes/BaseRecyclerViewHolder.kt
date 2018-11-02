@@ -11,7 +11,6 @@ import android.widget.TextView
 import com.chansos.libs.rxkotlin.Kt
 import com.chansos.libs.rxkotlin.utils.ObjectUtils
 
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 class BaseRecyclerViewHolder internal constructor(itemView: View, private val context: Context) :
     RecyclerView.ViewHolder(itemView) {
     private val imageViewList: HashSet<Int> by lazy {
@@ -19,30 +18,28 @@ class BaseRecyclerViewHolder internal constructor(itemView: View, private val co
     }
 
     companion object {
-        internal fun create(itemView: View, parent: ViewGroup): BaseRecyclerViewHolder {
-            return BaseRecyclerViewHolder(itemView, parent.context)
-        }
+        internal fun create(itemView: View, parent: ViewGroup): BaseRecyclerViewHolder =
+            BaseRecyclerViewHolder(itemView, parent.context)
 
-        fun createView(parent: ViewGroup, rootLayoutResId: Int): View {
-            return LayoutInflater.from(parent.context).inflate(rootLayoutResId, parent, false)
-        }
+        fun createView(parent: ViewGroup, rootLayoutResId: Int): View =
+            LayoutInflater.from(parent.context).inflate(rootLayoutResId, parent, false)
     }
 
     /**
      * 从子RecyclerView的子View中获取View实例
      * */
-    fun <T : View?> get(viewId: Int): T {
-        return Kt.UI.get<T>(itemView, viewId)
-    }
+    fun <T : View?> get(viewId: Int): T = Kt.UI.get<T>(itemView, viewId)
 
     /**
      * 加载图片
      * */
     fun setImage(viewId: Int, image: String) {
-        if (context is Activity) {
-            Kt.Image.load(get(viewId), image, context)
-        } else if (context is Fragment) {
-            Kt.Image.load(get(viewId), image, context)
+        Kt.Image.run {
+            if (context is Activity) {
+                load(get(viewId), image, context)
+            } else if (context is Fragment) {
+                load(get(viewId), image, context)
+            }
         }
         imageViewList.add(viewId)
     }
@@ -51,10 +48,12 @@ class BaseRecyclerViewHolder internal constructor(itemView: View, private val co
      * 加载图片
      * */
     fun setImage(viewId: Int, image: Int) {
-        if (context is Activity) {
-            Kt.Image.load(get(viewId), image, context)
-        } else if (context is Fragment) {
-            Kt.Image.load(get(viewId), image, context)
+        Kt.Image.run {
+            if (context is Activity) {
+                load(get(viewId), image, context)
+            } else if (context is Fragment) {
+                load(get(viewId), image, context)
+            }
         }
         imageViewList.add(viewId)
     }
@@ -78,11 +77,11 @@ class BaseRecyclerViewHolder internal constructor(itemView: View, private val co
      * */
     fun release() {
         imageViewList.forEach { viewId ->
-            run {
+            Kt.Image.run {
                 if (context is Activity && !context.isDestroyed) {
-                    Kt.Image.release(get(viewId), context)
+                    release(get(viewId), context)
                 } else if (context is Fragment && !context.isDetached) {
-                    Kt.Image.release(get(viewId), context)
+                    release(get(viewId), context)
                 }
             }
         }

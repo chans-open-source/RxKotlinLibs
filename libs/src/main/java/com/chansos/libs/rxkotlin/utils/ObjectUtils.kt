@@ -7,7 +7,6 @@ import java.lang.reflect.Modifier
  * 对象操作工具
  * 使用反射对对象进行操作
  * */
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 class ObjectUtils {
     companion object {
         /**
@@ -21,12 +20,12 @@ class ObjectUtils {
             try {
                 val clazz = obj.javaClass
                 try {
-                    val field1 = clazz.getField(fieldName)
-                    field1.set(obj, fieldValue)
+                    clazz.getField(fieldName).set(obj, fieldValue)
                 } catch (e: Exception) {
-                    val field2 = clazz.getDeclaredField(fieldName)
-                    field2.isAccessible = true
-                    field2.set(obj, fieldValue)
+                    clazz.getDeclaredField(fieldName).run {
+                        isAccessible = true
+                        set(obj, fieldValue)
+                    }
                 }
             } catch (e: Exception) {
                 LogUtils.e(e)

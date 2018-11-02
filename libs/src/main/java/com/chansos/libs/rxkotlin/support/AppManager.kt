@@ -4,7 +4,6 @@
 
 package com.chansos.libs.rxkotlin.support
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.res.Resources
@@ -17,8 +16,6 @@ import java.util.*
  * 应用管理器
  * 记录与操作Activity实例
  * */
-@SuppressLint("StaticFieldLeak")
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 class AppManager internal constructor() {
     /**
      * 应用根Context实例

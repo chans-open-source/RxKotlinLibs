@@ -18,7 +18,6 @@ import com.trello.rxlifecycle2.components.support.RxFragment
 /**
  * Fragment的基类
  * */
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 abstract class BaseFragment : RxFragment(), Clickable,
     Initializable, Autowire {
     protected lateinit var self: BaseFragment

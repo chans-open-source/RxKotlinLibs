@@ -5,23 +5,21 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.support.v4.content.LocalBroadcastManager
 import com.chansos.libs.rxkotlin.Kt
-import com.chansos.libs.rxkotlin.support.AppManager
 
 /**
  * 广播管理器
  * */
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 class BroadcastHelper internal constructor() {
 
-    internal val receiverManager: LocalBroadcastManager by lazy {
+    val receiverManager: LocalBroadcastManager by lazy {
         LocalBroadcastManager.getInstance(Kt.App.getContext())
     }
 
     private fun createIntent(clazz: Class<*>, action: String): Intent {
-        val intent = Intent()
-        intent.setClass(Kt.App.getContext(), clazz)
-        intent.action = action
-        return intent
+        return Intent().run {
+            setClass(Kt.App.getContext(), clazz)
+            setAction(action)
+        }
     }
 
     /**
@@ -79,4 +77,5 @@ class BroadcastHelper internal constructor() {
     fun sendSync(clazz: Class<*>, action: String) {
         receiverManager.sendBroadcastSync(createIntent(clazz, action))
     }
+
 }

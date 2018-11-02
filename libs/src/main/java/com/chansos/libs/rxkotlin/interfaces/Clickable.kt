@@ -10,7 +10,6 @@ import com.chansos.libs.rxkotlin.Kt
 /**
  * 可点击
  * */
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 internal interface Clickable : View.OnClickListener, View.OnLongClickListener {
     /**
      * 绑定点击事件

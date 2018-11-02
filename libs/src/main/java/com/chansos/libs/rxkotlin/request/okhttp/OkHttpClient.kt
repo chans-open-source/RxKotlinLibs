@@ -10,7 +10,6 @@ import java.util.concurrent.TimeUnit
 /**
  * OkHttp客户端实例
  * */
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 class OkHttpClient {
     companion object {
          val instance: OkHttpClient = OkHttpClient.Builder()

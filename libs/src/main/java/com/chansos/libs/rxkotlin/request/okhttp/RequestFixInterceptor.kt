@@ -13,7 +13,6 @@ import okio.Buffer
 /**
  * OkHttp拦截器
  * */
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 class RequestFixInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val original = chain.request()

@@ -14,7 +14,6 @@ import io.reactivex.disposables.Disposable
 /**
  * 接口观察者
  * */
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 open class RxObserver<T> : Observer<T> {
     private var activity: Activity
     private var isShowLoading: Boolean

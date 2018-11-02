@@ -9,7 +9,6 @@ import com.chansos.libs.rxkotlin.Kt
 /**
  * 可初始化的
  * */
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 internal interface Initializable {
     /**
      * 初始化

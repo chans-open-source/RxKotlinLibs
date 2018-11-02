@@ -8,7 +8,6 @@ import com.chansos.libs.rxkotlin.utils.ObjectUtils
 /**
  * 通用的RecyclerView适配器
  * */
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 abstract class BaseRecyclerViewAdapter<T> : RecyclerView.Adapter<BaseRecyclerViewHolder>() {
     private val dataList: ArrayList<T> by lazy {
         ArrayList<T>()
@@ -43,9 +42,7 @@ abstract class BaseRecyclerViewAdapter<T> : RecyclerView.Adapter<BaseRecyclerVie
 
     override fun onBindViewHolder(viewHolder: BaseRecyclerViewHolder, position: Int) {
         viewHolder.itemView.setOnClickListener { v ->
-            if (onItemClickListener != null) {
-                onItemClickListener?.onItemClick(v, position)
-            }
+            onItemClickListener!!.onItemClick(v, position)
         }
         viewHolder.itemView.setOnLongClickListener(View.OnLongClickListener { v ->
             if (onItemLongClickListener == null) {
@@ -82,9 +79,7 @@ abstract class BaseRecyclerViewAdapter<T> : RecyclerView.Adapter<BaseRecyclerVie
      * */
     fun release() {
         viewHolderList.forEach { viewHolder ->
-            run {
-                viewHolder.release()
-            }
+            viewHolder.release()
         }
         ObjectUtils.destory(this)
     }

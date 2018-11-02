@@ -17,7 +17,6 @@ import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 /**
  * Activity的基类
  * */
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 abstract class BaseActivity : RxAppCompatActivity(), Clickable,
     Initializable, Autowire {
     lateinit var self: BaseActivity
@@ -34,9 +33,11 @@ abstract class BaseActivity : RxAppCompatActivity(), Clickable,
 
     override fun onDestroy() {
         super.onDestroy()
-        Kt.App.remove(self)
-        Kt.UI.removeLoadingDialog(self)
-        Kt.Handler.destory(self)
+        Kt.run {
+            App.remove(self)
+            UI.removeLoadingDialog(self)
+            Handler.destory(self)
+        }
         ObjectUtils.destory(self)
     }
 
@@ -48,9 +49,10 @@ abstract class BaseActivity : RxAppCompatActivity(), Clickable,
     override fun onMenuOpened(featureId: Int, menu: Menu?): Boolean {
         if (menu != null && menu.javaClass.simpleName == "MenuBuilder") {
             try {
-                val method = menu.javaClass.getDeclaredMethod("setOptionalIconsVisible", Boolean::class.java)
-                method.isAccessible = true
-                method.invoke(menu, true)
+                menu.javaClass.getDeclaredMethod("setOptionalIconsVisible", Boolean::class.java).run {
+                    isAccessible = true
+                    invoke(menu, true)
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
             }

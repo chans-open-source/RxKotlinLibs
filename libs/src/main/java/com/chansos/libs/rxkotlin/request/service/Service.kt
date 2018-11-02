@@ -12,7 +12,6 @@ import io.reactivex.annotations.NonNull
 /**
  * 网络服务
  * */
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 class Service<T> private constructor(private var lifecycleView: Any) {
     private var observable: Observable<T>? = null
 

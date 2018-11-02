@@ -8,7 +8,6 @@ import java.util.concurrent.ConcurrentHashMap
 /**
  * Handler操作工具
  * */
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 class HandlerHelper internal constructor() {
     private val handlerMapper: ConcurrentHashMap<Int, Handler> by lazy {
         ConcurrentHashMap<Int, Handler>()

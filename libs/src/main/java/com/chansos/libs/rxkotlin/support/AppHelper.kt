@@ -10,7 +10,6 @@ import com.chansos.libs.rxkotlin.helper.UIHelper
 /**
  * 公用工具类
  * */
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 class AppHelper internal constructor() {
     /**
      * UI操作

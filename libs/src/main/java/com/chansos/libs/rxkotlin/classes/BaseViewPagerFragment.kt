@@ -10,7 +10,6 @@ import android.os.Bundle
  * 用于ViewPager的Fragment
  * 加入了懒加载功能
  * */
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 abstract class BaseViewPagerFragment : BaseFragment() {
     private var isPrepared = false
     private var isRequested = false

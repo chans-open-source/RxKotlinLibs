@@ -7,7 +7,6 @@ import com.chansos.libs.rxkotlin.support.AppHelper
 import com.chansos.libs.rxkotlin.support.AppManager
 import com.chansos.libs.rxkotlin.support.RxRequest
 
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 class Kt {
     companion object {
         /**

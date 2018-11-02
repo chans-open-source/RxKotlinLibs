@@ -19,8 +19,6 @@ import java.io.File
  * 图片加载器
  * 使用Glide项目封装
  * */
-@SuppressLint("CheckResult")
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 class ImageLoader internal constructor() {
     /**
      * 缓存加载器选项
@@ -39,13 +37,13 @@ class ImageLoader internal constructor() {
      * 创建通用加载器选项
      * */
     private fun createDefaultOptions(canCache: Boolean): RequestOptions {
-        val options = RequestOptions()
+        var options = RequestOptions()
             .placeholder(R.drawable.ic_svg_picture)
             .error(R.drawable.ic_svg_picture_error)
             .optionalCenterInside()
             .override(640, 640)
         if (canCache) {
-            options.diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+            options = options.diskCacheStrategy(DiskCacheStrategy.RESOURCE)
         }
         return options
     }
@@ -58,18 +56,18 @@ class ImageLoader internal constructor() {
     }
 
     fun setOverrideSize(width: Int, height: Int) {
-        cacheOptions.override(width, height)
-        noCacheOptions.override(width, height)
+        cacheOptions = cacheOptions.override(width, height)
+        noCacheOptions = noCacheOptions.override(width, height)
     }
 
     fun setDefaultImage(imageResId: Int) {
-        cacheOptions.placeholder(imageResId)
-        noCacheOptions.placeholder(imageResId)
+        cacheOptions = cacheOptions.placeholder(imageResId)
+        noCacheOptions = noCacheOptions.placeholder(imageResId)
     }
 
     fun setErrorImage(imageResId: Int) {
-        cacheOptions.error(imageResId)
-        noCacheOptions.error(imageResId)
+        cacheOptions = cacheOptions.error(imageResId)
+        noCacheOptions = noCacheOptions.error(imageResId)
     }
 
     /**

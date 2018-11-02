@@ -23,7 +23,6 @@ import retrofit2.converter.fastjson.FastJsonConverterFactory
 /**
  * Api创建器
  */
-@Suppress("UNCHECKED_CAST", "MemberVisibilityCanBePrivate", "unused")
 class ServiceHelper {
     companion object {
 
