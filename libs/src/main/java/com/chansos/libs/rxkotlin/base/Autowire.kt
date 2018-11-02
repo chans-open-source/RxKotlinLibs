@@ -5,7 +5,6 @@
 package com.chansos.libs.rxkotlin.base
 
 import android.app.Activity
-import android.text.TextUtils
 import com.chansos.libs.rxkotlin.AppManager
 import com.chansos.libs.rxkotlin.anno.ModulePresenter
 import com.chansos.libs.rxkotlin.anno.PageOptions
@@ -42,12 +41,17 @@ internal interface Autowire {
             if (validOption(annotation.orientation)) {
                 this.requestedOrientation = annotation.orientation
             }
-            if (!TextUtils.isEmpty(annotation.title)) {
+            val title = annotation.title
+            if (title.isNotEmpty() && title.isNotBlank()) {
                 this.title = annotation.title
             } else if (validOption(annotation.titleResId)) {
                 this.title = AppManager.getContext().getText(annotation.titleResId)
             }
         }
+    }
+
+    private fun isInvalidPath(path: String?): Boolean {
+        return path == null || path.isEmpty() || path.isBlank()
     }
 
     /**
@@ -58,10 +62,10 @@ internal interface Autowire {
         if (annotation != null) {
             var path: String = annotation.path
             val clazz = annotation.clazz
-            if (TextUtils.isEmpty(path) && clazz != BaseContract.BasePresenter::class) {
+            if (isInvalidPath(path) && clazz != BaseContract.BasePresenter::class) {
                 path = clazz.qualifiedName ?: ""
             }
-            if (!TextUtils.isEmpty(path)) {
+            if (!isInvalidPath(path)) {
                 try {
                     val constructor = Class.forName(path).getConstructor()
                     val presenter = constructor.newInstance() as BaseContract.BasePresenter?
