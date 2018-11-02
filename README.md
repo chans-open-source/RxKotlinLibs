@@ -35,22 +35,22 @@ dependencies {
 ```
 override fun onCreate() {
   super.onCreate()
-  AppManager.init(this.applicationContext)
+  Kt.App.init(this.applicationContext)
 }
 ```
 ./Other.kt
 ```
 // Get application context instance.
-AppManager.getContext(): Context
+Kt.App.getContext(): Context
 
 // Get application resources instance.
-AppManager.getResources(): Resources
+Kt.App.getResources(): Resources
 
 // Get last activity instance of activity stack.
-AppManager.last(): Activity
+Kt.App.last(): Activity
 
 // Exit application.
-AppManager.exit()
+Kt.App.exit()
 ```
 
 ### BaseActivity
@@ -156,14 +156,14 @@ class ProjectModel() : Parcelable {
 ```
 Request
 ```
-RxRequest
+Kt.Request
   .create<ProjectModel>(view as BaseActivity)
-  .api(RxRequest.api(Test::class.java).projectList(1, 2))
+  .api(Kt.Request.api(Test::class.java).projectList(1, 2))
   .obs(Obs(view as BaseActivity))
 ```
 Response Callback
 ```
-class Obs(activity: BaseActivity) : RxRequest.RxObserver<ProjectModel>(activity) {
+class Obs(activity: BaseActivity) : Kt.Observer<ProjectModel>(activity) {
   override fun onNext(t: ProjectModel) {
     LogUtils.d(JSON.toJSONString(t))
   }
@@ -178,89 +178,89 @@ class Obs(activity: BaseActivity) : RxRequest.RxObserver<ProjectModel>(activity)
 ### BroadcastHelper
 ```
 // Register
-AppHelper.Broadcast.register(): Boolean
+Kt.Broadcast.register(): Boolean
 
 // Unregister
-AppHelper.Broadcast.unregister(): Boolean
+Kt.Broadcast.unregister(): Boolean
 
 // Send Broadcast
-AppHelper.Broadcast.send()
+Kt.Broadcast.send()
 
 // Send Broadcast Synchronized
-AppHelper.Broadcast.sendSync()
+Kt.Broadcast.sendSync()
 ```
 
 ### HandlerHelper
 ```
 // Create
-AppHelper.Handler.create(): Handler?
+Kt.Handler.create(): Handler?
 
 // Send Empty Message
-AppHelper.Handler.what(): Boolean
+Kt.Handler.what(): Boolean
 
 // Send Message Instance.
-AppHelper.Handler.send(): Boolean
+Kt.Handler.send(): Boolean
 
 // Send Config
-AppHelper.Handler.sendMessage(): Boolean
+Kt.Handler.sendMessage(): Boolean
 
 // Remove Message
-AppHelper.Handler.remove()
+Kt.Handler.remove()
 
 // Obtain Message
-AppHelper.Handler.obtainMessage(): Message
+Kt.Handler.obtainMessage(): Message
 ```
 
 ### PermissionHelper
 ```
 // Check
-AppHelper.Permission.check(): Boolean
+Kt.Permission.check(): Boolean
 
 // Request Permission
-AppHelper.Permission.request()
+Kt.Permission.request()
 ```
 
 ### SharedPreferencesHelper
 ```
 // Set
-AppHelper.SharedPreferences.set(key, value)
+Kt.SharedPreferences.set(key, value)
 
 // Get
-AppHelper.SharedPreferences.get(key, <T>, default): T?
+Kt.SharedPreferences.get(key, <T>, default): T?
 ```
 
 ### UIHelper
 ```
 // Show toast layout.
-AppHelper.UI.showToast()
+Kt.UI.showToast()
 
 // Show loading dialog.
-AppHelper.UI.showLoading()
+Kt.UI.showLoading()
 
 // Hide loading dialog.
-AppHelper.UI.hideLoading()
+Kt.UI.hideLoading()
 
 // Bind click listener.
-AppHelper.UI.bindClick()
+Kt.UI.bindClick()
 
 // Bind long click listener.
-AppHelper.UI.bindLongClick()
+Kt.UI.bindLongClick()
 
 // Quick navigation to another activity.
-AppHelper.UI.quickTo()
+Kt.UI.quickTo()
 
 // Navigation to another activity for result.
-AppHelper.UI.quickToForResult()
+Kt.UI.quickToForResult()
 
 // Find view by id of layout.
-AppHelper.UI.get()
+Kt.UI.get()
 ```
 
 ### ImageLoader
 ```
 // Load image.
-AppHelper.Image.load()
+Kt.Image.load()
 
 // Load image of no cache.
-AppHelper.Image.noCacheLoad()
+Kt.Image.noCacheLoad()
 ```
