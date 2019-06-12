@@ -6,11 +6,12 @@ package com.chansos.libs.rxkotlin.interfaces
 
 import android.app.Activity
 import com.chansos.libs.rxkotlin.Kt
-import com.chansos.libs.rxkotlin.annotations.ModulePresenter
+import com.chansos.libs.rxkotlin.annotations.Autowire
 import com.chansos.libs.rxkotlin.annotations.PageOptions
 import com.chansos.libs.rxkotlin.classes.BaseContract
 import com.chansos.libs.rxkotlin.utils.LogUtils
 import com.chansos.libs.rxkotlin.utils.ObjectUtils
+import java.lang.reflect.Field
 
 /**
  * 自动装配
@@ -18,7 +19,7 @@ import com.chansos.libs.rxkotlin.utils.ObjectUtils
 internal interface Autowire {
     fun autowire() {
         autowirePageDefaultOptions()
-        autowirePresenter()
+        autowireFields()
     }
 
     /**
@@ -55,24 +56,24 @@ internal interface Autowire {
     }
 
     /**
-     * 自动装配Presenter
+     * 自动装配类中添加了Autowire注解的declaredFields
      * */
-    fun autowirePresenter() {
-        val annotation = this.javaClass.getAnnotation(ModulePresenter::class.java)
-        if (annotation != null) {
-            var path: String = annotation.path
-            val clazz = annotation.clazz
-            if (isInvalidPath(path) && clazz != BaseContract.BasePresenter::class) {
-                path = clazz.qualifiedName ?: ""
-            }
-            if (!isInvalidPath(path)) {
-                try {
-                    val constructor = Class.forName(path.trim()).getConstructor()
-                    val presenter = constructor.newInstance() as BaseContract.BasePresenter?
-                    presenter!!.bind(this as BaseContract.BaseView)
-                    ObjectUtils.inject(this, "presenter", presenter)
-                } catch (e: Exception) {
-                    LogUtils.e(e)
+    fun autowireFields() {
+        val fields = this.javaClass.declaredFields
+        fields.forEach { field: Field? ->
+            run {
+                val annotation = field?.getAnnotation(Autowire::class.java)
+                if (annotation != null) {
+                    try {
+                        val constructor = Class.forName(field.type.name).getConstructor()
+                        val instance = constructor.newInstance()
+                        if (instance is BaseContract.BasePresenter) {
+                            instance.bind(this as BaseContract.BaseView)
+                        }
+                        ObjectUtils.inject(this, field.name, instance)
+                    } catch (e: Exception) {
+                        LogUtils.e(e)
+                    }
                 }
             }
         }

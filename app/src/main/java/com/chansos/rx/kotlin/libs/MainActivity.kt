@@ -1,12 +1,19 @@
 package com.chansos.rx.kotlin.libs
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
+import com.chansos.libs.rxkotlin.annotations.Autowire
+import com.chansos.libs.rxkotlin.annotations.PageLayoutId
+import com.chansos.libs.rxkotlin.classes.BaseActivity
+import com.chansos.libs.rxkotlin.utils.LogUtils
 
-class MainActivity : AppCompatActivity() {
+@PageLayoutId(R.layout.activity_main)
+class MainActivity : BaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    @Autowire
+    private lateinit var presenter: MainPresenter
+
+    override fun initialize() {
+        LogUtils.i(presenter.toString())
     }
+
+
 }

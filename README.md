@@ -149,9 +149,11 @@ interface Contract : BaseContract {
 ```
 View
 ```
+import com.chansos.rxandroid.kotlin.module.first.Presenter;
+
 @PageLayoutId(R.layout.fragment_first)
-@ModulePresenter("com.chansos.rxandroid.kotlin.module.first.Presenter")
 class FirstFragment : BaseViewPagerFragment(), Contract.View {
+  @Autowire
   private lateinit var presenter: Presenter
 }
 ```
