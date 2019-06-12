@@ -50,5 +50,3 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
-// ./gradlew clean build bintrayUpload -PbintrayUser=changedenczd -PbintrayKey=KEY -PdryRun=false
