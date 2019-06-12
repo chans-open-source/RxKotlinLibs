@@ -8,7 +8,7 @@ buildscript {
     ext.aliyun_repository = 'http://maven.aliyun.com/nexus/content/groups/public'
     ext.aliyun_jcenter = 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
 
-    repositories {
+    ext.default_repositories = {
         maven {
             url "$aliyun_repository"
         }
@@ -19,6 +19,8 @@ buildscript {
         google()
         jcenter()
     }
+
+    repositories default_repositories
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -29,17 +31,8 @@ buildscript {
 }
 
 allprojects {
-    repositories {
-        maven {
-            url "$aliyun_repository"
-        }
-        maven {
-            url "$aliyun_jcenter"
-        }
+    repositories default_repositories
 
-        google()
-        jcenter()
-    }
     //字体问题
     tasks.withType(Javadoc) {
         options.addStringOption('Xdoclint:none', '-quiet')
