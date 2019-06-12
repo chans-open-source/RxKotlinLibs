@@ -11,7 +11,7 @@ Module/build.gradle
 ```
 dependencies {
   ...
-  implementation 'com.chansos.libs:rxkotlin:0.2.6'
+  implementation 'com.chansos.libs:rxkotlin:0.3.0'
   ...
 }
 ```
