@@ -42,7 +42,7 @@ abstract class BaseRecyclerViewAdapter<T> : RecyclerView.Adapter<BaseRecyclerVie
 
     override fun onBindViewHolder(viewHolder: BaseRecyclerViewHolder, position: Int) {
         viewHolder.itemView.setOnClickListener { v ->
-            onItemClickListener!!.onItemClick(v, position)
+            onItemClickListener?.onItemClick(v, position)
         }
         viewHolder.itemView.setOnLongClickListener(View.OnLongClickListener { v ->
             if (onItemLongClickListener == null) {
