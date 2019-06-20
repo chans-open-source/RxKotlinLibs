@@ -74,6 +74,10 @@ abstract class BaseRecyclerViewAdapter<T> : RecyclerView.Adapter<BaseRecyclerVie
         notifyDataSetChanged()
     }
 
+    fun getValidDataList(): ArrayList<T> {
+        return dataList
+    }
+
     /**
      * 释放RecyclerView中的子View
      * */
